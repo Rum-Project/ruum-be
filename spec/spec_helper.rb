@@ -12,8 +12,7 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-require 'simplecov'
-SimpleCov.start
+
 # See https://rubydoc.info/gems/rspec-core/RSpec/Core/Configuration
 RSpec.configure do |config|
   # rspec-expectations config goes here. You can use an alternate
@@ -94,13 +93,5 @@ RSpec.configure do |config|
   Kernel.srand config.seed
 =end
 end
-Shoulda::Matchers.configure do |config|
-  config.integrate do |with|
-    with.test_framework :rspec
 
-    # Keep as many of these lines as are necessary:
-    with.library :active_record
-    with.library :active_model
-  end
-end
 
