@@ -13,6 +13,7 @@ RSpec.describe Musician, type: :model do
     it {should validate_presence_of :photo}
     it {should validate_presence_of :phone}
 
+
     it "does not invalid phone num" do
     musician_1 = Musician.new(name: 'musician_1', email: "musician_1@email.com", photo: "www.photo.com", phone: "5555")
     expect(musician_1.save).to eq(false)
@@ -31,7 +32,5 @@ RSpec.describe Musician, type: :model do
       expect(musician_2.save).to eq(false)
       expect(musician_2.errors.details[:email].first[:error]).to eq(:taken)
     end
-
-
   end
 end
