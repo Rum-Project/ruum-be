@@ -1,5 +1,5 @@
-class Musician < ApplicationRecord
-  has_many :bookings
+class Host < ApplicationRecord
+  has_many :rooms
 
   validates :name, presence: true
 
@@ -7,8 +7,6 @@ class Musician < ApplicationRecord
             presence: true,
             uniqueness: true,
             format: { with: URI::MailTo::EMAIL_REGEXP }
-
-  validates :photo, presence: true
 
   VALID_PHONE_NUMBER_REGEX = /\A(\+\d{1,2}\s)?\(?\d{3}\)?[\s.-]?\d{3}[\s.-]?\d{4}\z/
   validates :phone,
