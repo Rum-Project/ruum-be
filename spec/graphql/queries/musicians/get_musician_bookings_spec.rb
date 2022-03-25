@@ -6,13 +6,14 @@ RSpec.describe Types::QueryType do
     it 'can query a musician bookings' do
       musician1 = Musician.create(id: 100, name: 'Gladys Knight', email: 'gladys@mail.com', phone: '5582832837', photo: 'www.gladys.com')
 
-      musician1.bookings.create!(musician_id: musician1.id, date: "April 30, 2022")
-      musician1.bookings.create!(musician_id: musician1.id, date: "April 29, 2022")
+      # room1 = Room.create()
+      musician1.bookings.create!(musician_id: musician1.id, date: 'April 30, 2022')
+      musician1.bookings.create!(musician_id: musician1.id, date: 'April 29, 2022')
 
       expect(Booking.count).to eq(2)
 
       result = RuumBeSchema.execute(query).as_json
-      binding.pry
+      # binding.pry
       expect(result['data']['getMusicianBookings'].count).to eq(2)
     end
   end
