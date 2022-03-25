@@ -25,10 +25,10 @@ RSpec.describe Musician, type: :model do
     end
 
     it 'does not allow for duplicate emails' do
-      musician_1 = Musician.create!(name: 'musician_1', email: 'musician_1@email.com', photo: 'www.photo.com', phone: '5595925618')
-      musician_2 = Musician.new(name: 'musician_2', email: 'musician_1@email.com', photo: 'www.photo.com', phone: '5593333333')
-      expect(musician_2.save).to eq(false)
-      expect(musician_2.errors.details[:email].first[:error]).to eq(:taken)
+      musician1 = Musician.create!(name: 'musician_1', email: 'musician_1@email.com', photo: 'www.photo.com', phone: '5595925618')
+      musician2 = Musician.new(name: 'musician_2', email: 'musician_1@email.com', photo: 'www.photo.com', phone: '5593333333')
+      expect(musician2.save).to eq(false)
+      expect(musician2.errors.details[:email].first[:error]).to eq(:taken)
     end
   end
 end

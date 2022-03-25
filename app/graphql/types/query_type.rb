@@ -8,7 +8,7 @@ module Types
       argument :id, ID, required: true
     end
 
-    field :get_musicians_bookings, [Types::BookingType], null: false, description: 'Returns the bookings for a single musician' do
+    field :get_musician_bookings, [Types::BookingType], null: false, description: 'Returns the bookings for a single musician' do
       argument :id, ID, required: true
     end
 
@@ -20,7 +20,7 @@ module Types
       Booking.find(id)
     end
 
-    def get_musicians_bookings(id:)
+    def get_musician_bookings(id:)
       Booking.where('musician_id = ?', id)
     end
   end
