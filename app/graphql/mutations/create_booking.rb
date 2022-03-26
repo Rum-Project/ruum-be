@@ -2,9 +2,9 @@
 
 module Mutations
   class CreateBooking < BaseMutation
-    argument :date, ISO8601DateTime, required: true
-    argument :musician_id, Types::MusicianType, null: false
-    argument :room_id, Types::RoomType, null: false
+    argument :date, String, required: true
+    argument :musician_id, ID, required: true
+    argument :room_id, ID, required: true
 
     type Types::BookingType
 
@@ -13,7 +13,7 @@ module Mutations
       date = attributes[:date]
       room_id = attributes[:room_id]
 
-      b = Booking.create(date: date, musician: musician_id)
+      b = Booking.create(date: date, musician_id: musician_id)
       b.room_bookings.create(room_id: room_id)
       
       b

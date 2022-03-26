@@ -19,6 +19,7 @@ RSpec.describe 'CreateBooking', type: :request do
       it 'creates booking' do
         expect(Booking.count).to eq(0)
         post '/graphql', params: { query: @query }
+        # binding.pry
         expect(Booking.count).to eq(2)
       end
 
