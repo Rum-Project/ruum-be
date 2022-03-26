@@ -24,7 +24,7 @@ RSpec.describe Host, type: :model do
     end
 
     it "does not allow for duplicate emails" do
-      host_1 = Host.create!(name: 'host_1', email: "host_1@email.com", phone: "5595925618")
+      Host.create!(name: 'host_1', email: "host_1@email.com", phone: "5595925618")
       host_2 = Host.new(name: 'host_2', email: "host_1@email.com", phone: "5593333333")
       expect(host_2.save).to eq(false)
       expect(host_2.errors.details[:email].first[:error]).to eq(:taken)
