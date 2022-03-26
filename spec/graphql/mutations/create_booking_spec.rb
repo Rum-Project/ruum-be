@@ -18,6 +18,7 @@ RSpec.describe 'CreateBooking', type: :request do
                     rooms {
                       id
                       name
+                      details
                       photo
                       price
                     }
@@ -29,17 +30,19 @@ RSpec.describe 'CreateBooking', type: :request do
       it 'creates booking' do
         expect(Booking.count).to eq(0)
         post '/graphql', params: { query: @query }
-        # binding.pry
-        expect(Booking.count).to eq(2)
+        expect(Booking.count).to eq(1)
       end
 
       it 'returns booking' do
         post '/graphql', params: { query: @query }
         json = JSON.parse(response.body)
-        data = json['data']['createBooking']
+        date = json['data']['createBooking']['date']
+        musician = json['data']['createBooking']['musician']
+        rooms = json['data']['createBooking']['rooms']
 
-        expect(data).to eq("Mon Apr 29 2019")
-        expect(data).to eq("morning")
+        expect(musician['id']).to eq('22')
+        expect(date).to eq("2022-04-29 00:00:00 UTC")
+        expect(rooms[0]['id']).to eq('70')
       end
     end
 end

@@ -10,9 +10,11 @@ module Mutations
 
     def resolve(date: nil, musician_id: nil, room_id: nil)
       # binding.pry
-      b = Booking.create!(date: date,
+      booking = Booking.create!(date: date,
                           musician: Musician.find(musician_id))
-      b.room_bookings.create(room: Room.find(room_id), booking_id: b.id)
+      booking.room_bookings.create(room: Room.find(room_id), booking_id: booking.id)
+
+      booking
     end
   end
 end
