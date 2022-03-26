@@ -8,15 +8,11 @@ module Mutations
 
     type Types::BookingType
 
-    def resolve(attributes)
-      musician_id = attributes[:musician_id]
-      date = attributes[:date]
-      room_id = attributes[:room_id]
-
-      b = Booking.create(date: date, musician_id: musician_id)
-      b.room_bookings.create(room_id: room_id)
-      
-      b
+    def resolve(date: nil, musician_id: nil, room_id: nil)
+      # binding.pry
+      b = Booking.create!(date: date,
+                          musician: Musician.find(musician_id))
+      b.room_bookings.create(room: Room.find(room_id), booking_id: b.id)
     end
   end
 end

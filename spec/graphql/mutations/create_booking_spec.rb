@@ -9,10 +9,20 @@ RSpec.describe 'CreateBooking', type: :request do
         @room = create(:room, id: '70')
         @query = <<~GQL
                 mutation {
-                  createBooking(input: {
-                                date: "Mon Apr 29 2022", musician_id:"22", room_id: "70"
-                                })
-                          }
+                  createBooking(input: {date: "Mon Apr 29 2022", musicianId: "22", roomId: "70"}) {
+                    date
+                    musician {
+                      id
+                      name
+                    }
+                    rooms {
+                      id
+                      name
+                      photo
+                      price
+                    }
+                  }
+                }
                 GQL
       end
 
