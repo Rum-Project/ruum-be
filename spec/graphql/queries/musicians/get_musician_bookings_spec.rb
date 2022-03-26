@@ -19,7 +19,6 @@ RSpec.describe 'Booking query' do
 
       expect(Booking.count).to eq(2)
       result = RuumBeSchema.execute(query).as_json
-      binding.pry
       expect(result['data']['getMusicianBookings'].count).to eq(2)
     end
   end

@@ -4,7 +4,7 @@ RSpec.describe Booking, type: :model do
   describe 'relationships' do
     it { should belong_to :musician }
     it { should have_many :room_bookings }
-    it { should have_many :bookings }
+    it { should have_many :rooms }
   end
 
   describe 'validations' do
