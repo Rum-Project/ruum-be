@@ -53,10 +53,17 @@ GEM
     diff-lcs (1.5.0)
     docile (1.4.0)
     erubi (1.10.0)
+    factory_bot (6.2.1)
+      activesupport (>= 5.0.0)
+    factory_bot_rails (6.2.0)
+      factory_bot (~> 6.2.0)
+      railties (>= 5.0.0)
+    faker (2.20.0)
+      i18n (>= 1.8.11, < 2)
     ffi (1.15.5)
     globalid (1.0.0)
       activesupport (>= 5.0)
-    graphql (2.0.4)
+    graphql (1.11.6)
     i18n (1.10.0)
       concurrent-ruby (~> 1.0)
     listen (3.1.5)
@@ -74,7 +81,7 @@ GEM
     minitest (5.15.0)
     msgpack (1.4.5)
     nio4r (2.5.8)
-    nokogiri (1.13.3-x86_64-darwin)
+    nokogiri (1.13.3-arm64-darwin)
       racc (~> 1.4)
     nokogiri (1.13.3-x86_64-linux)
       racc (~> 1.4)
@@ -82,7 +89,8 @@ GEM
     pry (0.14.1)
       coderay (~> 1.1)
       method_source (~> 1.0)
-    puma (3.12.6)
+    puma (4.3.11)
+      nio4r (~> 2.0)
     racc (1.6.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -159,17 +167,18 @@ GEM
     websocket-extensions (0.1.5)
 
 PLATFORMS
-  x86_64-darwin-20
-  x86_64-linux
+  arm64-darwin-20
 
 DEPENDENCIES
   bootsnap (>= 1.1.0)
   byebug
-  graphql
+  factory_bot_rails
+  faker
+  graphql (= 1.11.6)
   listen (>= 3.0.5, < 3.2)
   pg (>= 0.18, < 2.0)
   pry
-  puma (~> 3.11)
+  puma (~> 4.3.11)
   rails (~> 5.2.7)
   rspec-rails (~> 5.0.0)
   rspec_junit_formatter
@@ -181,4 +190,4 @@ RUBY VERSION
    ruby 2.7.2p137
 
 BUNDLED WITH
-   2.3.4
+   2.2.27

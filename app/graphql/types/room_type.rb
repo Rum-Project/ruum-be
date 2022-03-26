@@ -1,9 +1,8 @@
-# frozen_string_literal: true
-
 module Types
   class RoomType < Types::BaseObject
     field :id, ID, null: false
-    field :name, String, null: false
+    field :name, ID, null: false
+    field :host, Types::HostType, null: false
     field :details, String, null: false
     field :photo, String, null: false
     field :address, String, null: false
