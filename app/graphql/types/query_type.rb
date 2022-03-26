@@ -12,6 +12,10 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_room, Types::RoomType, null: false, description: 'Returns a single room by id' do
+      argument :id, ID, required: true
+    end
+
     def get_musician(id:)
       Musician.find(id)
     end
@@ -22,6 +26,10 @@ module Types
 
     def get_musician_bookings(id:)
       Booking.where('musician_id = ?', id)
+    end
+
+    def get_room(id:)
+      Room.find(id)
     end
   end
 end
