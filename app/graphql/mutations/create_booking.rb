@@ -9,11 +9,11 @@ module Mutations
     type Types::BookingType
 
     def resolve(date: nil, musician_id: nil, room_id: nil)
-      booking = Booking.create!(date: date,
-                          musician: Musician.find(musician_id))
-      booking.room_bookings.create(room: Room.find(room_id), booking_id: booking.id)
+      booking = Booking.create(date: date,
+                          musician: Musician.find(musician_id), room_id: room_id)
 
-      booking
+      rescue ActiveRecord::RecordInvalid => e
+        GraphQL::ExecutionError.new("Invalid input: #{e.record.errors.full_messages.join(', ')}")
     end
   end
 end
