@@ -3,6 +3,7 @@ class CreateBookings < ActiveRecord::Migration[5.2]
     create_table :bookings do |t|
       t.datetime :date
       t.references :musician, foreign_key: true
+      t.references :room, foreign_key: true
 
       t.timestamps
     end

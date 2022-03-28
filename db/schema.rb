@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_03_24_224725) do
+ActiveRecord::Schema.define(version: 2022_03_24_223251) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -18,9 +18,11 @@ ActiveRecord::Schema.define(version: 2022_03_24_224725) do
   create_table "bookings", force: :cascade do |t|
     t.datetime "date"
     t.bigint "musician_id"
+    t.bigint "room_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["musician_id"], name: "index_bookings_on_musician_id"
+    t.index ["room_id"], name: "index_bookings_on_room_id"
   end
 
   create_table "hosts", force: :cascade do |t|
@@ -38,16 +40,6 @@ ActiveRecord::Schema.define(version: 2022_03_24_224725) do
     t.text "photo"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-  end
-
-  create_table "room_bookings", force: :cascade do |t|
-    t.datetime "date"
-    t.bigint "room_id"
-    t.bigint "booking_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["booking_id"], name: "index_room_bookings_on_booking_id"
-    t.index ["room_id"], name: "index_room_bookings_on_room_id"
   end
 
   create_table "rooms", force: :cascade do |t|
@@ -69,7 +61,6 @@ ActiveRecord::Schema.define(version: 2022_03_24_224725) do
   end
 
   add_foreign_key "bookings", "musicians"
-  add_foreign_key "room_bookings", "bookings"
-  add_foreign_key "room_bookings", "rooms"
+  add_foreign_key "bookings", "rooms"
   add_foreign_key "rooms", "hosts"
 end
