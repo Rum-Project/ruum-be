@@ -1,7 +1,5 @@
 require 'rails_helper'
 
-require 'rails_helper'
-
 RSpec.describe Types::QueryType do
   describe 'display room' do
     it 'can query a single room' do
@@ -55,15 +53,3 @@ RSpec.describe Types::QueryType do
     GQL
   end
 end
-# name
-# details
-# photo
-# address
-# city
-# state
-# zip
-# price
-# amenities
-# instruments
-# capacity
-# host_id
