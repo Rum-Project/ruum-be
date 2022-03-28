@@ -15,7 +15,7 @@ RSpec.describe 'CreateBooking', type: :request do
                       id
                       name
                     }
-                    rooms {
+                    room {
                       id
                       name
                       details
@@ -36,13 +36,14 @@ RSpec.describe 'CreateBooking', type: :request do
       it 'returns booking' do
         post '/graphql', params: { query: @query }
         json = JSON.parse(response.body)
+        # binding.pry
         date = json['data']['createBooking']['date']
         musician = json['data']['createBooking']['musician']
-        rooms = json['data']['createBooking']['rooms']
+        room = json['data']['createBooking']['room']
 
         expect(musician['id']).to eq('22')
         expect(date).to eq("2022-04-29 00:00:00 UTC")
-        expect(rooms[0]['id']).to eq('70')
+        expect(room['id']).to eq('70')
       end
     end
 end

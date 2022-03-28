@@ -1,6 +1,6 @@
 class Room < ApplicationRecord
   belongs_to :host
-  has_many :room_bookings
+  has_many :bookings
 
   validates :host_id, presence: true
   validates :name, presence: true

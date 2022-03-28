@@ -4,11 +4,11 @@ module Types
     field :id, ID, null: false
     field :date, String, null: false
     field :musician, Types::MusicianType, null: false
-    field :rooms, [Types::RoomType], null: false
+    field :room, Types::RoomType, null: false
   end
 
-  def rooms
-    return if (object.instance_of? Array) || object.room_id.nil?
+  def room
+    return if (object.instance_of? Room) || object.room_id.nil?
 
     Room.find(object.booking_id)
   end
