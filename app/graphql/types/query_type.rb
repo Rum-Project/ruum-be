@@ -16,6 +16,10 @@ module Types
       argument :id, ID, required: true
     end
 
+    field :get_available_rooms, [Types::RoomType], null: false, description: 'Returns rooms available on a date' do
+      argument :date, String, required: true
+    end
+
     def get_musician(id:)
       Musician.find(id)
     end
@@ -30,6 +34,19 @@ module Types
 
     def get_room(id:)
       Room.find(id)
+    end
+
+    def get_available_rooms(date:)
+      existing_bookings = Booking.where('date = ?', date)
+
+      if existing_bookings.empty?
+        return Room.all
+      else
+        rooms_booked = existing_bookings.map { |b| b.room.id }
+        rooms = Room.where.not('id = ?', rooms_booked)
+      end
+
+      rooms
     end
   end
 end

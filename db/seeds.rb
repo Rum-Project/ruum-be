@@ -9,6 +9,7 @@ musician_1 = Musician.create(name:"Bruce Springsteen", email:"bruce@mail.com", p
 musician_2 = Musician.create(name:"Bruce Rundman", email:"bruce2@mail.com", phone: "8885739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs")
 
 host_1 = Host.create!(name: 'Chris H', email: 'chris@fake.com', phone: '5595555617')
+
 room_1 = Room.create!(id: 1,
              name: 'Crungalow Studios',
              details: 'Not spacious or inviting',
@@ -23,9 +24,20 @@ room_1 = Room.create!(id: 1,
              capacity: 4,
              host_id: "#{host_1.id}")
 
+room_2 = Room.create!(id: 2,
+              name: 'Crungaloid Studios',
+              details: 'Spacious, inviting is a stretch',
+              photo: 'www.photo.com',
+              address: '678 Not a Street',
+              city: 'Denver',
+              state: 'CO',
+              zip: '80211',
+              price: 85.00,
+              amenities: 'wifi, bathrooms',
+              instruments: 'drums, bagpipes',
+              capacity: 3,
+              host_id: "#{host_1.id}")
+
 musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 29, 2022', room_id: room_1.id)
 musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 30, 2022', room_id: room_1.id)
-
-
-
 
