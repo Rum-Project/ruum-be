@@ -20,6 +20,8 @@ module Mutations
       musician_data[:photo] = photo if photo
 
       musician.update!(musician_data)
+
+      musician
     end
   end
 end
