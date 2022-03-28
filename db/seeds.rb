@@ -23,13 +23,9 @@ room_1 = Room.create!(id: 1,
              capacity: 4,
              host_id: "#{host_1.id}")
 
-musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 29, 2022')
-booking_1 = musician_1.bookings.first
-booking_1.room_bookings.create!(room: room_1, booking: booking_1)
+musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 29, 2022', room_id: room_1.id)
+musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 30, 2022', room_id: room_1.id)
 
-booking_2 = musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 30, 2022')
-
-booking_2.room_bookings.create!(room: room_1, booking: booking_2)
 
 
 
