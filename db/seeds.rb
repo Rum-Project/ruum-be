@@ -57,7 +57,7 @@ room_3 = Room.create!(id: 3,
               address: '674 Not a Street',
               city: 'Denver',
               state: 'CO',
-              zip: '80211',
+              zip: '80216',
               price: 25.00,
               amenities: 'wifi, bathrooms',
               instruments: 'trumpet, bagpipes',
@@ -65,13 +65,13 @@ room_3 = Room.create!(id: 3,
               host_id: "#{host_4.id}")
 
 room_4 = Room.create!(id: 4,
-              name: 'Room3 Studios',
-              details: 'Spacious, inviting is a stretch',
+              name: 'Room4 Studios',
+              details: 'not Spacious, inviting is a stretch',
               photo: 'www.photo.com',
               address: '671 Not a Street',
               city: 'Denver',
               state: 'CO',
-              zip: '80211',
+              zip: '80212',
               price: 65.00,
               amenities: ' bathrooms',
               instruments: 'guitar',
@@ -80,3 +80,5 @@ room_4 = Room.create!(id: 4,
 
 musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 29, 2022', room_id: room_1.id)
 musician_1.bookings.create!(musician_id: musician_1.id, date: 'April 30, 2022', room_id: room_1.id)
+musician_2.bookings.create!(musician_id: musician_2.id, date: 'April 15, 2022', room_id: room_3.id)
+musician_3.bookings.create!(musician_id: musician_3.id, date: 'April 14, 2022', room_id: room_4.id)
