@@ -18,15 +18,18 @@ Rüm is our Capstone Project, the final project in our curriculum at Turing Scho
 ## 🔧 Setup
 
 Ruby v 2.7.2
+
 Rails v. 5.2.7
+
 GraphQL v. 1.11.6
+
 RSpec (Rails) 5.0.0
 
 1. Clone this repo to your local machine.
 
-2. `bundle install`
+2. Navigate to the repo directory and `bundle install`
 
-3. `rails db:{create,migrate,seed}`
+3. Create and seed your local database with `rails db:{create,migrate,seed}`
 
 Database schema: 
 
