@@ -2,14 +2,12 @@ require 'rails_helper'
 
 RSpec.describe 'Get Available Rooms' do
   describe 'list of rooms' do
-
-    before(:each) do 
+    before(:each) do
       @room1 = create(:room)
       @room2 = create(:room)
     end
-    
+
     it 'can return list of available rooms' do
-      
       create(:booking, date: "2022-04-30 00:00:00 UTC", room_id: @room1.id)
       create(:booking, date: "2022-05-01 00:00:00 UTC", room_id: @room1.id)
 
