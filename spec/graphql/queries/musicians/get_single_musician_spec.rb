@@ -15,6 +15,14 @@ RSpec.describe Types::QueryType do
     end
   end
 
+  it 'can query a single musician sad path no match' do
+    Musician.create!(id: 60, name: 'Bruce Isley', email: 'bruce.i@mail.com', phone: '9573830582', photo: 'www.photo.com')
+
+    result = RuumBeSchema.execute(query).as_json
+    expect(result["data"]).to eq(nil)
+    expect(result["errors"].first["message"]).to eq("Couldn't find Musician with 'id'=50")
+  end
+
   def query
     <<~GQL
     {
