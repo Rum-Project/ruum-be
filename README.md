@@ -33,7 +33,7 @@ RSpec (Rails) 5.0.0
 
 Database schema: 
 
-![Database schema]()
+![Schema image](https://github.com/Rum-Project/ruum-be/blob/main/Ruum-Schema-03292022.png)
 
 4. To run the server locally, use `rails s`
 
