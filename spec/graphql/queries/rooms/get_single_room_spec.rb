@@ -33,6 +33,27 @@ RSpec.describe Types::QueryType do
     end
   end
 
+  it 'can query a single room sad path' do
+    host_1 = Host.create!(name: 'Chris H', email: 'chris@fake.com', phone: '5595555617')
+    host_1.rooms.create!(id: 2,
+                 name: 'Crungalow Studios',
+                 details: 'Not spacious or inviting',
+                 photo: 'www.photo.com',
+                 address: '123 Fake Street',
+                 city: 'Denver',
+                 state: 'CO',
+                 zip: '80211',
+                 price: 100.5,
+                 amenities: 'coffee maker, wifi',
+                 instruments: 'drums, keys, gangsa',
+                 capacity: 4
+                 )
+
+    result = RuumBeSchema.execute(query).as_json
+    expect(result["data"]).to eq(nil)
+    expect(result["errors"].first["message"]).to eq("Couldn't find Room with 'id'=1")
+  end
+
   def query
     <<~GQL
     {
