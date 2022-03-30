@@ -31,8 +31,8 @@ room_1 = Room.create!(id: 1,
                 state: 'CO',
                 zip: '80211',
                 price: 152.94513408358924,
-                amenities: wifi, bathrooms,
-                instruments: 
+                amenities: 'wifi, bathrooms',
+                instruments: 'marimba',
                 capacity: 2,
                 host_id: "#{host_1.id}")
 
@@ -45,8 +45,8 @@ room_2 = Room.create!(id: 2,
                 state: 'CO',
                 zip: '80211',
                 price: 37.28512723432239,
-                amenities: wifi, bathrooms, drinking water,
-                instruments: trumpet
+                amenities: 'wifi, bathrooms, drinking water',
+                instruments: 'trumpet',
                 capacity: 2,
                 host_id: "#{host_2.id}")
 
@@ -59,8 +59,8 @@ room_3 = Room.create!(id: 3,
                 state: 'CO',
                 zip: '80211',
                 price: 53.08025543960865,
-                amenities: bathrooms,
-                instruments: 
+                amenities: 'bathrooms',
+                instruments: 'gong',
                 capacity: 5,
                 host_id: "#{host_7.id}")
 
@@ -73,8 +73,8 @@ room_4 = Room.create!(id: 4,
                 state: 'CO',
                 zip: '80211',
                 price: 196.2707477711356,
-                amenities: coffee maker,
-                instruments: 
+                amenities: 'coffee maker',
+                instruments: 'piano',
                 capacity: 5,
                 host_id: "#{host_3.id}")
 
@@ -87,8 +87,8 @@ room_5 = Room.create!(id: 5,
                 state: 'CO',
                 zip: '80211',
                 price: 60.927725219398575,
-                amenities: drinking water,
-                instruments: bagpipes
+                amenities: 'drinking water',
+                instruments: 'bagpipes',
                 capacity: 4,
                 host_id: "#{host_4.id}")
 
@@ -101,8 +101,8 @@ room_6 = Room.create!(id: 6,
                 state: 'CO',
                 zip: '80211',
                 price: 161.03894445040038,
-                amenities: coffee maker,
-                instruments: 
+                amenities: 'coffee maker',
+                instruments: 'piano',
                 capacity: 5,
                 host_id: "#{host_1.id}")
 
@@ -115,8 +115,8 @@ room_7 = Room.create!(id: 7,
                 state: 'CO',
                 zip: '80211',
                 price: 131.57314255921779,
-                amenities: drinking water,
-                instruments: keys, trumpet
+                amenities: 'drinking water',
+                instruments: 'keys, trumpet',
                 capacity: 4,
                 host_id: "#{host_7.id}")
 
@@ -129,8 +129,8 @@ room_8 = Room.create!(id: 8,
                 state: 'CO',
                 zip: '80211',
                 price: 110.42634467202856,
-                amenities: bathrooms, wifi,
-                instruments: gangsa
+                amenities: 'bathrooms, wifi',
+                instruments: 'gangsa',
                 capacity: 5,
                 host_id: "#{host_5.id}")
 
@@ -143,8 +143,8 @@ room_9 = Room.create!(id: 9,
                 state: 'CO',
                 zip: '80211',
                 price: 38.34506839468918,
-                amenities: coffee maker, bathrooms,
-                instruments: drums, guitar, keys
+                amenities: 'coffee maker, bathrooms',
+                instruments: 'drums, guitar, keys',
                 capacity: 2,
                 host_id: "#{host_4.id}")
 
@@ -157,8 +157,8 @@ room_10 = Room.create!(id: 10,
                 state: 'CO',
                 zip: '80211',
                 price: 150.6037621693038,
-                amenities: wifi, drinking water, bathrooms,
-                instruments: 
+                amenities: 'wifi, drinking water, bathrooms',
+                instruments: 'harp',
                 capacity: 6,
                 host_id: "#{host_1.id}")
 
@@ -171,8 +171,8 @@ room_11 = Room.create!(id: 11,
                 state: 'CO',
                 zip: '80211',
                 price: 40.85648133901943,
-                amenities: drinking water, coffee maker,
-                instruments: 
+                amenities: 'drinking water, coffee maker',
+                instruments: 'piano',
                 capacity: 6,
                 host_id: "#{host_5.id}")
 
@@ -185,8 +185,8 @@ room_12 = Room.create!(id: 12,
                 state: 'CO',
                 zip: '80211',
                 price: 116.48297872316247,
-                amenities: bathrooms, wifi, coffee maker,
-                instruments: drums, keys
+                amenities: 'bathrooms, wifi, coffee maker',
+                instruments: 'drums, keys',
                 capacity: 5,
                 host_id: "#{host_1.id}")
 
@@ -199,8 +199,8 @@ room_13 = Room.create!(id: 13,
                 state: 'CO',
                 zip: '80211',
                 price: 122.82712657326759,
-                amenities: ,
-                instruments: keys, bagpipes
+                amenities: 'bar',
+                instruments: 'keys, bagpipes',
                 capacity: 2,
                 host_id: "#{host_7.id}")
 
@@ -213,8 +213,8 @@ room_14 = Room.create!(id: 14,
                 state: 'CO',
                 zip: '80211',
                 price: 48.44425073165181,
-                amenities: coffee maker, wifi, bathrooms,
-                instruments: drums, keys
+                amenities: 'coffee maker, wifi, bathrooms',
+                instruments: 'drums, keys',
                 capacity: 2,
                 host_id: "#{host_2.id}")
 
@@ -227,8 +227,8 @@ room_15 = Room.create!(id: 15,
                 state: 'CO',
                 zip: '80211',
                 price: 64.87477259667648,
-                amenities: wifi, bathrooms,
-                instruments: drums
+                amenities: 'wifi, bathrooms',
+                instruments: 'drums',
                 capacity: 4,
                 host_id: "#{host_5.id}")
 
@@ -241,8 +241,8 @@ room_16 = Room.create!(id: 16,
                 state: 'CO',
                 zip: '80211',
                 price: 150.4446644607169,
-                amenities: bathrooms, coffee maker,
-                instruments: trumpet, gangsa
+                amenities: 'bathrooms, coffee maker',
+                instruments: 'trumpet, gangsa',
                 capacity: 1,
                 host_id: "#{host_3.id}")
 
@@ -255,8 +255,8 @@ room_17 = Room.create!(id: 17,
                 state: 'CO',
                 zip: '80211',
                 price: 169.01062833585658,
-                amenities: wifi,
-                instruments: gangsa
+                amenities: 'wifi',
+                instruments: 'gangsa',
                 capacity: 5,
                 host_id: "#{host_3.id}")
 
@@ -269,8 +269,8 @@ room_18 = Room.create!(id: 18,
                 state: 'CO',
                 zip: '80211',
                 price: 65.58958820775261,
-                amenities: drinking water, bathrooms, wifi,
-                instruments: 
+                amenities: 'drinking water, bathrooms, wifi',
+                instruments: 'xylophone',
                 capacity: 3,
                 host_id: "#{host_2.id}")
 
@@ -283,8 +283,8 @@ room_19 = Room.create!(id: 19,
                 state: 'CO',
                 zip: '80211',
                 price: 29.657480242996854,
-                amenities: ,
-                instruments: gangsa, keys, bagpipes
+                amenities: 'pressure cooker',
+                instruments: 'gangsa, keys, bagpipes',
                 capacity: 1,
                 host_id: "#{host_7.id}")
 
@@ -297,8 +297,8 @@ room_20 = Room.create!(id: 20,
                 state: 'CO',
                 zip: '80211',
                 price: 188.21826670581484,
-                amenities: bathrooms, coffee maker,
-                instruments: guitar, keys, drums
+                amenities: 'bathrooms, coffee maker',
+                instruments: 'guitar, keys, drums',
                 capacity: 4,
                 host_id: "#{host_5.id}")
 
