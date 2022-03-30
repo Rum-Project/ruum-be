@@ -1,4 +1,13 @@
 class RuumBeSchema < GraphQL::Schema
+
+  use GraphQL::Execution::Errors
+
+# rescue ActiveRecord::RecordNotFound exception
+  rescue_from(ActiveRecord::RecordNotFound) do |err, obj, args, ctx, field|
+    raise GraphQL::ExecutionError, err
+  end
+
+
   mutation(Types::MutationType)
   query(Types::QueryType)
 
