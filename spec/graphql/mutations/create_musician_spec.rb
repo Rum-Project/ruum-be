@@ -12,6 +12,19 @@ RSpec.describe 'CreateMusician', type: :request do
       expect(parsed["data"]["createMusician"]["photo"]).to eq("www.photo.com")
       expect(Musician.count).to eq(1)
     end
+
+    it "returns error for duplicate email" do
+      Musician.create!(
+      name: "Johnny Coltrane",
+      email: "john@space.com",
+      password: "password",
+      phone: "5597995639",
+      photo: "www.photo.com")
+      post '/graphql', params: { query: query }
+      parsed = JSON.parse(response.body)
+      expect(parsed["data"]["createMusician"]).to eq(nil)
+      expect(parsed["errors"].first["message"]).to eq("Invalid input: Email has already been taken")
+    end
   end
 
   def query

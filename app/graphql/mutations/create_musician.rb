@@ -19,6 +19,8 @@ module Mutations
         phone: phone,
         photo: photo
       )
+    rescue ActiveRecord::RecordInvalid => e
+      GraphQL::ExecutionError.new("Invalid input: #{e.record.errors.full_messages.join(', ')}")
     end
   end
 end
