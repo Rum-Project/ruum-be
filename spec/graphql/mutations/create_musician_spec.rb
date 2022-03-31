@@ -5,6 +5,7 @@ RSpec.describe 'CreateMusician', type: :request do
     it "creates a user with given information" do
       post '/graphql', params: { query: query }
       parsed = JSON.parse(response.body)
+
       expect(parsed["data"]["createMusician"]).to have_key("id")
       expect(parsed["data"]["createMusician"]["name"]).to eq("John Coltrane")
       expect(parsed["data"]["createMusician"]["email"]).to eq("john@space.com")
@@ -32,8 +33,12 @@ RSpec.describe 'CreateMusician', type: :request do
       mutation {
       createMusician(input: {
         name: "John Coltrane",
-        email: "john@space.com",
-        password: "password",
+        authProvider: {
+          credentials: {
+            email: "john@space.com",
+            password: "password"
+          }
+        }
         phone: "5597995639",
         photo: "www.photo.com"})
         { id
