@@ -6,5 +6,6 @@ FactoryBot.define do
     email { Faker::Internet.email }
     phone { Faker::Base.numerify('##########') }
     photo { Faker::Internet.url }
+    password { 'password'}
   end
 end

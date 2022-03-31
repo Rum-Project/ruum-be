@@ -3,6 +3,8 @@ class Musician < ApplicationRecord
 
   validates :name, presence: true
 
+  has_secure_password
+
   validates :email,
             presence: true,
             uniqueness: true,

@@ -1,18 +1,15 @@
 # This file should contain all the record creation needed to seed the database with its default values.
 # The data can then be loaded with the rails db:seed command (or created alongside the database with db:setup).
 #
-# Examples:
-#
-#   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
-#   Character.create(name: 'Luke', movie: movies.first)
-musician_1 = Musician.create(name:"Bruce Springsteen", email:"bruce@mail.com", phone: "8885739573", photo: "https://unsplash.com/photos/d1UPkiFd04A")
-musician_2 = Musician.create(name:"Bruce Rundman", email:"bruce2@mail.com", phone: "8885739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs")
-musician_3 = Musician.create(name:"Musician 3", email:"3m@mail.com", phone: "1885739573", photo: "https://unsplash.com/photos/d1UPkiFd04A")
-musician_4 = Musician.create(name:"Musician 4", email:"4m@mail.com", phone: "2885739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs")
-musician_5 = Musician.create(name:"Musician 5", email:"5m@mail.com", phone: "8285739573", photo: "https://unsplash.com/photos/d1UPkiFd04A")
-musician_6 = Musician.create(name:"Musician 6", email:"6m@mail.com", phone: "8835739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs")
-musician_7 = Musician.create(name:"Musician 7", email:"7m@mail.com", phone: "1585739573", photo: "https://unsplash.com/photos/d1UPkiFd04A")
-musician_8 = Musician.create(name:"Musician 8", email:"8m@mail.com", phone: "2875739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs")
+
+musician_1 = Musician.create!(name:"Bruce Springsteen", email:"bruce@mail.com", phone: "8885739573", photo: "https://unsplash.com/photos/d1UPkiFd04A", password: 'password')
+musician_2 = Musician.create!(name:"Bruce Rundman", email:"bruce2@mail.com", phone: "8885739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs", password: 'password')
+musician_3 = Musician.create!(name:"Musician 3", email:"3m@mail.com", phone: "1885739573", photo: "https://unsplash.com/photos/d1UPkiFd04A", password: 'password')
+musician_4 = Musician.create!(name:"Musician 4", email:"4m@mail.com", phone: "2885739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs", password: 'password')
+musician_5 = Musician.create!(name:"Musician 5", email:"5m@mail.com", phone: "8285739573", photo: "https://unsplash.com/photos/d1UPkiFd04A", password: 'password')
+musician_6 = Musician.create!(name:"Musician 6", email:"6m@mail.com", phone: "8835739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs", password: 'password')
+musician_7 = Musician.create!(name:"Musician 7", email:"7m@mail.com", phone: "1585739573", photo: "https://unsplash.com/photos/d1UPkiFd04A", password: 'password')
+musician_8 = Musician.create!(name:"Musician 8", email:"8m@mail.com", phone: "2875739504", photo: "https://unsplash.com/photos/6GgCyNnF6Zs", password: 'password')
 
 host_1 = Host.create!(name: 'Chris H', email: 'chris@fake.com', phone: '5595555617')
 host_2 = Host.create!(name: 'Jon H', email: 'john@fake.com', phone: '5495555617')

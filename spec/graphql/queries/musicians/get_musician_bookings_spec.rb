@@ -6,7 +6,7 @@ RSpec.describe 'Booking query' do
     it 'can query a musician bookings' do
       room1 = create(:room)
 
-      musician1 = Musician.create(id: 100, name: 'Gladys Knight', email: 'gladys@mail.com', phone: '5582832837', photo: 'www.gladys.com')
+      musician1 = create(:musician, id: '100')
 
       # two bookings for the same room on different dates
       musician1.bookings.create!(musician_id: musician1.id, date: 'April 29, 2022', room_id: room1.id)
