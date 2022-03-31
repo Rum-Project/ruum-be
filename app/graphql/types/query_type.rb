@@ -43,7 +43,7 @@ module Types
         return Room.all
       else
         rooms_booked = existing_bookings.map { |b| b.room.id }
-        rooms = Room.where.not('id = ?', rooms_booked)
+        rooms = Room.where.not(id: rooms_booked)
       end
 
       rooms
