@@ -1,29 +1,48 @@
 require 'rails_helper'
 
-RSpec.describe 'CreateMusician' do
-  describe 'display musicians' do
-    it 'can query a single musician' do
-      Musician.create(id: 5, name: "Bruce Easley", email: "bruce.e@mail.com", phone: "7573830582", photo: "www.photo.com")
-      Musician.create(id: 6, name: "Bruce Isley", email: "bruce.i@mail.com", phone: "9573830582", photo: "www.photo.com")
+RSpec.describe 'CreateMusician', type: :request do
+  describe '.resolve' do
+    it "creates a user with given information" do
+      post '/graphql', params: { query: query }
+      parsed = JSON.parse(response.body)
+      expect(parsed["data"]["createMusician"]).to have_key("id")
+      expect(parsed["data"]["createMusician"]["name"]).to eq("John Coltrane")
+      expect(parsed["data"]["createMusician"]["email"]).to eq("john@space.com")
+      expect(parsed["data"]["createMusician"]["phone"]).to eq("5597995639")
+      expect(parsed["data"]["createMusician"]["photo"]).to eq("www.photo.com")
+      expect(Musician.count).to eq(1)
+    end
 
-      result = RuumBeSchema.execute(query).as_json
-
-      expect(result["data"]["getMusician"]["name"]).to eq("Bruce Easley")
-      expect(result["data"]["getMusician"]["email"]).to eq("bruce.e@mail.com")
-      expect(result["data"]["getMusician"]["phone"]).to eq("7573830582")
+    it "returns error for duplicate email" do
+      Musician.create!(
+      name: "Johnny Coltrane",
+      email: "john@space.com",
+      password: "password",
+      phone: "5597995639",
+      photo: "www.photo.com")
+      post '/graphql', params: { query: query }
+      parsed = JSON.parse(response.body)
+      expect(parsed["data"]["createMusician"]).to eq(nil)
+      expect(parsed["errors"].first["message"]).to eq("Invalid input: Email has already been taken")
     end
   end
 
   def query
-    <<~GQL
-    {
-      getMusician(id: "5") {
-        name
-        email
-        phone
-        photo
-        }
-    }
-    GQL
+      <<~GQL
+      mutation {
+      createMusician(input: {
+        name: "John Coltrane",
+        email: "john@space.com",
+        password: "password",
+        phone: "5597995639",
+        photo: "www.photo.com"})
+        { id
+          name
+          email
+          phone
+          photo
+          }
+         }
+      GQL
   end
 end
