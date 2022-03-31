@@ -5,5 +5,6 @@ module Types
     field :destroy_musician, mutation: Mutations::DestroyMusician
     field :update_musician, mutation: Mutations::UpdateMusician
     field :create_booking, mutation: Mutations::CreateBooking
+    field :sign_in_musician, mutation: Mutations::SignInMusician
   end
 end
