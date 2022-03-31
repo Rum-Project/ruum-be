@@ -1,4 +1,4 @@
-# app/graphql/mutations/create_musician.rb
+# app/graphql/mutations/update_musician.rb
 
 module Mutations
   class UpdateMusician < BaseMutation
@@ -22,6 +22,9 @@ module Mutations
       musician.update!(musician_data)
 
       musician
+
+    rescue ActiveRecord::RecordNotFound => e
+      GraphQL::ExecutionError.new("Invalid input: #{e.message}")
     end
   end
 end
