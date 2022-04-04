@@ -13,16 +13,18 @@ module Mutations
 
       musician = Musician.find_by email: credentials[:email]
 
+      len = ActiveSupport::MessageEncryptor.key_len
+      salt = SecureRandom.random_bytes(len)
+      key = ActiveSupport::KeyGenerator.new('password').generate_key(salt, len)
+      crypt = ActiveSupport::MessageEncryptor.new(key)
+
       # ensures we have the correct user
       if musician && musician.authenticate(credentials[:password])
-        len = ActiveSupport::MessageEncryptor.key_len
-        salt  = SecureRandom.random_bytes(len)
-        key   = ActiveSupport::KeyGenerator.new('password').generate_key(salt, len)
-        crypt = ActiveSupport::MessageEncryptor.new(key)
         token = crypt.encrypt_and_sign("musician-id:#{musician.id}")
         { musician: musician, token: token }
       else
-        GraphQL::ExecutionError.new('Invalid login credentials')
+        GraphQL::ExecutionError.new('Invalid login credentials', extensions: { 'code' => 'UNAUTHORIZED' })
+        
       end
     end
   end

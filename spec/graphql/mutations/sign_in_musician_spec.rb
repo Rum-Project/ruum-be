@@ -31,6 +31,7 @@ RSpec.describe "sign in mutation", type: :request do
     
     expect(response_body[:data][:signInMusician]).to eq(nil)
     expect(response_body[:errors][0][:message]).to eq('Invalid login credentials')
+    expect(response_body[:errors][0][:extensions][:code]).to eq('UNAUTHORIZED')
   end
 
   def query2
