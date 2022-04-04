@@ -23,4 +23,28 @@ RSpec.describe "sign in mutation", type: :request do
   }
   GQL
   end
+
+  it 'errors on failure to authenticate' do
+    musician_2 = Musician.create!(email: 'bruce@mail.com', password: 'password', name: 'Phil Brazil', photo: 'www.photo.com', phone: '5597995111')
+    post '/graphql', params: { query: query2 }
+    response_body = JSON.parse(response.body, symbolize_names: true)
+    
+    expect(response_body[:data][:signInMusician]).to eq(nil)
+    expect(response_body[:errors][0][:message]).to eq('Invalid login credentials')
+  end
+
+  def query2
+    <<~GQL
+    mutation {
+      signInMusician(
+    input: {credentials: {email: "bruce@mail.com", password: "pass"}}
+    ) {
+    token
+    musician {
+      id
+      }
+    }
+  }
+  GQL
+  end
 end
