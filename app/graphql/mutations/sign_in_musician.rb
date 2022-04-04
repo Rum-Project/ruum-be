@@ -17,9 +17,10 @@ module Mutations
       return unless musician
       return unless musician.authenticate(credentials[:password])
 
-      # use Ruby on Rails - ActiveSupport::MessageEncryptor, to build a token
-      binding.pry
-      crypt = ActiveSupport::MessageEncryptor.new(Rails.application.credentials.secret_key_base.byteslice(0..31))
+      len = ActiveSupport::MessageEncryptor.key_len
+      salt  = SecureRandom.random_bytes(len)
+      key   = ActiveSupport::KeyGenerator.new('password').generate_key(salt, len)
+      crypt = ActiveSupport::MessageEncryptor.new(key)
       token = crypt.encrypt_and_sign("musician-id:#{ musician.id }")
 
       { musician: musician, token: token }
