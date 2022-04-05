@@ -67,7 +67,7 @@ You can deploy with `git push heroku main`.
 - [Thomas Nguyen](https://github.com/tommi-t-nguyen)
 - [Tony Carpenter](https://github.com/tonycarpenter21)
 
-## **Contributors** ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
+## **Back End Team** ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
