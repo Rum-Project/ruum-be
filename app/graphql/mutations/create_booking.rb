@@ -12,8 +12,8 @@ module Mutations
       booking = Booking.create(date: date,
                           musician: Musician.find(musician_id), room_id: room_id)
 
-      rescue ActiveRecord::RecordInvalid => e
-        GraphQL::ExecutionError.new("Invalid input: #{e.record.errors.full_messages.join(', ')}")
+      rescue ActiveRecord::RecordNotFound => e
+        GraphQL::ExecutionError.new("Invalid input: #{e.message}")
     end
   end
 end

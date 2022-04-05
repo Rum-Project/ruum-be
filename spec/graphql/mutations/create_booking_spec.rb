@@ -45,5 +45,12 @@ RSpec.describe 'CreateBooking', type: :request do
         expect(date).to eq("2022-04-29 00:00:00 UTC")
         expect(room['id']).to eq('70')
       end
+
+      it "sad path no musician matches id" do
+        Musician.delete_all
+        post '/graphql', params: { query: @query }
+        parsed = JSON.parse(response.body)
+        expect(parsed["errors"][0]["message"]).to eq("Invalid input: Couldn't find Musician with 'id'=22")
+      end
     end
 end
