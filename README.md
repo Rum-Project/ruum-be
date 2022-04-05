@@ -74,7 +74,7 @@ You can deploy with `git push heroku main`.
     </td>
     <td align="center"><a href="https://github.com/jacksonvaldez"><img src="https://avatars.githubusercontent.com/u/87635398?v=4" width="100px;" alt=""/><br /><sub><b>Jackson (he/him)</b></sub></a><br /><a href="https://github.com/Rum-Project/ruum-be/commits?author=jacksonvaldez" title="Code">💻</a> <a href="https://github.com/Rum-Project/ruum-be/pulls?q=is%3Apr+author%3Ajacksonvaldez" title="Reviewed Pull Requests">👀</a>
     </td>
-    <td align="center"><a href="https://github.com/dkassin"><img src="hhttps://avatars.githubusercontent.com/u/76177498?v=4" width="100px;" alt=""/><br /><sub><b>David (he/him)</b></sub></a><br /><a href="https://github.com/Rum-Project/ruum-be/commits?author=dkassin" title="Code">💻</a> <a href="https://github.com/Rum-Project/ruum-be/pulls?q=is%3Apr+author%3Adkassin" title="Reviewed Pull Requests">👀</a>
+    <td align="center"><a href="https://github.com/dkassin"><img src="https://avatars.githubusercontent.com/u/76177498?v=4" width="100px;" alt=""/><br /><sub><b>David (he/him)</b></sub></a><br /><a href="https://github.com/Rum-Project/ruum-be/commits?author=dkassin" title="Code">💻</a> <a href="https://github.com/Rum-Project/ruum-be/pulls?q=is%3Apr+author%3Adkassin" title="Reviewed Pull Requests">👀</a>
     </td>
   </tr>
 </table>
