@@ -61,6 +61,12 @@ Run the RSpec test suite with `bundle exec rspec`
 When you have merged new functionality to main, ensure you have privileges to deploy to the Heroku remote (contact any team member to get set up). 
 You can deploy with `git push heroku main`.
 
+## Front End Team: 
+- [Daniel O'Connell](https://github.com/Daniel-OC)
+- [Rana Jurjus](https://github.com/rjur11)
+- [Thomas Nguyen](https://github.com/tommi-t-nguyen)
+- [Tony Carpenter](https://github.com/tonycarpenter21)
+
 ## **Contributors** ([emoji key](https://allcontributors.org/docs/en/emoji-key)):
 
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
