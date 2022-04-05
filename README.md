@@ -1,9 +1,11 @@
 # README
 
-![languages](https://img.shields.io/github/languages/top/cuisine-odyssey/frontend_application?color=red)
-![PRs](https://img.shields.io/github/issues-pr-closed/cuisine-odyssey/frontend_application)
+![languages](https://img.shields.io/github/languages/top/Rum-Project/ruum-be?color=red)
+![PRs](https://img.shields.io/github/issues-pr-closed/Rum-Project/ruum-be)
 ![rspec](https://img.shields.io/gem/v/rspec?color=blue&label=rspec)
-![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) <!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
+![simplecov](https://img.shields.io/gem/v/simplecov?color=blue&label=simplecov) 
+
+<!-- ALL-CONTRIBUTORS-BADGE:START - Do not remove or modify this section -->
 [![All Contributors](https://img.shields.io/badge/contributors-6-orange.svg?style=flat)](#contributors-)
 <!-- ALL-CONTRIBUTORS-BADGE:END -->
 
@@ -48,9 +50,43 @@ Database schema:
 
 This readme provides the info you need for downloading and running the app. 
 
-We also have a [Postman Collection](https://turing-school-student-plan-team.postman.co/workspace/Ruum-GraphQL-Queries~34255ed0-8e6c-43ca-88d4-4a6739413d1c/collection/19380151-a8dc235c-f462-4cc8-8ef9-3c96d15755c3?action=share&creator=2635401) set up to test all the possible GraphQL queries (happy and sad paths). _ _To view the Postman Collection, you must first be a member of the Turing School Team._ _
+We also have a **[Postman Collection](https://turing-school-student-plan-team.postman.co/workspace/Ruum-GraphQL-Queries~34255ed0-8e6c-43ca-88d4-4a6739413d1c/collection/19380151-a8dc235c-f462-4cc8-8ef9-3c96d15755c3?action=share&creator=2635401)** set up to test all the possible GraphQL queries (happy and sad paths). _To view the Postman Collection, you must first be a member of the Turing School Team._
 
-Please note that, per the instructions for this project, **Rüm does not include robust authentication or authorization capabilities.** You can simply browse as a pre-created musician or host by logging in as either "Musician" (no password necessary) or "Host" (again, no password).
+Here's a sample GraphQL query from Postman, which provides all of a musician's bookings (leveraging the musician's id):
+
+```
+  { getMusicianBookings(id: "2")
+      {
+        id
+        date
+        room {
+          id
+          name
+          host {
+            name
+          }
+          details
+          photo
+          address
+          city
+          state
+          zip
+          price
+          amenities
+          instruments
+          capacity
+        }
+      }
+    }
+```
+
+Check out Postman for more supported queries!
+
+### Please note:
+
+**Rüm does not include robust authentication or authorization capabilities.** 
+
+You must log in as a pre-existing Musician (or create a new musician with access to the Backend database). We are not supporting the Host flow at this time, so room listings are also created behind the scenes.
 
 ## Tests
 
